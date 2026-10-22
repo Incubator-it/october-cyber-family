@@ -7,9 +7,10 @@ A family of security ways ([ways.sh](https://www.ways.sh/)), in the style of [in
 The whole family:
 
 ```bash
-npm install -g @incu/ways
+npx -y ways.sh add github:incu-tech/october-cyber-family
 
-ways add github:incu-tech/october-cyber-family
+# or, with the CLI installed globally:
+# npm install -g @incu/ways && ways add github:incu-tech/october-cyber-family
 ```
 
 The skill only:
