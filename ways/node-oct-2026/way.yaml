@@ -1,0 +1,64 @@
+# october/node-oct-2026 — member way of the october/cyber family.
+#
+# Driven by skills/node-october-2026-security (declared on the family — see /way.yaml).
+# Phase ids follow that skill: inventory and analysis are read-only, the report is
+# written before any edit, and fix (branch security/node-oct-2026 + pull request)
+# runs only when something is affected. Manual actions are part of that report or
+# pull request, not a later phase.
+#
+# The single human gate is the pull request review. The skill opens the PR and does
+# not merge it. When nothing is affected the run stops at report and does not open a PR.
+#
+# Validate:  ways validate ways/node-oct-2026/way.yaml
+#            ways conformance ways/node-oct-2026/way.yaml
+apiVersion: ways/v1alpha1
+kind: Way
+metadata:
+  name: october/node-oct-2026
+  displayName: Node.js October 2026 Security Release
+  version: 0.1.0
+  description: Audit a Node.js repo for the October 2026 Security Release, report before editing, and open a patch pull request only when a declared runtime or dependency is affected.
+  discipline: security
+  publisher: incubator
+
+spec:
+  requires:
+    cli:
+      - name: git
+        check: git --version
+        required: true
+      - name: gh
+        check: gh --version
+        versionConstraint: '>=2.0.0'
+        install: 'https://cli.github.com'
+        required: true
+        capability: vcs-host
+
+  needs:
+    - id: vcs-host
+      displayName: Version-control host
+      description: Hosts the repo and the security pull request this way opens when a target is affected.
+      contract: ways.dev/vcs-host@1
+      required: true
+      cardinality: single
+      providerSource: environment
+      options: [github, gitlab, bitbucket]
+
+  defaults:
+    bindings:
+      vcs-host: github
+
+  flow:
+    phases:
+      - { id: inventory, label: Inventory }
+      - { id: analysis, label: Analysis }
+      - { id: report, label: Report }
+      - { id: fix, label: Fix }
+      - { id: done, label: Done }
+    gates:
+      - id: pr
+        label: Security PR opened, not merged
+        afterPhase: fix
+        approval: user
+        enforcement: blocking
+    state: .ways/state.json
