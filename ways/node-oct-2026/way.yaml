@@ -50,14 +50,14 @@ spec:
 
   flow:
     phases:
-      - { id: inventory, label: Inventario }
-      - { id: analysis, label: Análisis }
-      - { id: report, label: Reporte }
+      - { id: inventory, label: Inventory }
+      - { id: analysis, label: Analysis }
+      - { id: report, label: Report }
       - { id: fix, label: Fix }
       - { id: done, label: Done }
     gates:
       - id: pr
-        label: PR de seguridad abierto, sin merge
+        label: Security PR opened, not merged
         afterPhase: fix
         approval: user
         enforcement: blocking
