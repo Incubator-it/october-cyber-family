@@ -1,10 +1,10 @@
 # october-cyber-family
 
-Familia de ways de seguridad ([ways.sh](https://www.ways.sh/)), al estilo de [incu-way](https://github.com/Incubator-it/incu-way). Cada incidencia vive como un member way con su skill; la familia se instala de una vez.
+A family of security ways ([ways.sh](https://www.ways.sh/)), in the style of [incu-way](https://github.com/Incubator-it/incu-way). Each incident is a member way with its own skill; the family installs as one.
 
-## Instalación
+## Install
 
-Como familia:
+The whole family:
 
 ```bash
 npm install -g @incu/ways
@@ -12,7 +12,7 @@ npm install -g @incu/ways
 ways add github:Incubator-it/october-cyber-family
 ```
 
-Solo la skill:
+The skill only:
 
 ```bash
 npx skills add https://github.com/Incubator-it/october-cyber-family.git --skill node-october-2026-security
@@ -20,18 +20,18 @@ npx skills add https://github.com/Incubator-it/october-cyber-family.git --skill 
 
 ## Skills
 
-| Skill | Member way | Qué hace |
+| Skill | Member way | What it does |
 |---|---|---|
-| `node-october-2026-security` | `october/node-oct-2026` | Audita un repo Node.js contra el October 2026 Security Release (CVE-2026-111497 y relacionados). Inventario y análisis en solo lectura, reporte antes de modificar, y PR de parche solo si hay algo afectado. |
+| `node-october-2026-security` | `october/node-oct-2026` | Audits a Node.js repo against the October 2026 Security Release (CVE-2026-111497 and related issues). Inventory and analysis are read-only, the report comes before any edit, and a patch PR opens only when something is affected. |
 
-El procedimiento está en [`skills/node-october-2026-security/SKILL.md`](skills/node-october-2026-security/SKILL.md). Los manifests están en [`way.yaml`](way.yaml) y [`ways/`](ways/README.md).
+The procedure is in [`skills/node-october-2026-security/SKILL.md`](skills/node-october-2026-security/SKILL.md). The manifests are in [`way.yaml`](way.yaml) and [`ways/`](ways/README.md).
 
-## Versiones
+## Versions
 
-- `VERSION` y el frontmatter de cada `skills/*/SKILL.md` son la versión del bundle de skills.
-- `metadata.version` de cada `way.yaml` versiona el artefacto Ways por separado.
+- `VERSION` and the frontmatter of each `skills/*/SKILL.md` are the skill-bundle version.
+- `metadata.version` on each `way.yaml` versions that Ways artifact on its own.
 
-## Validar
+## Validate
 
 ```bash
 ways validate way.yaml ways/node-oct-2026/way.yaml
