@@ -9,13 +9,13 @@ The whole family:
 ```bash
 npm install -g @incu/ways
 
-ways add github:Incubator-it/october-cyber-family
+ways add github:incu-tech/october-cyber-family
 ```
 
 The skill only:
 
 ```bash
-npx skills add https://github.com/Incubator-it/october-cyber-family.git --skill node-october-2026-security
+npx skills add https://github.com/incu-tech/october-cyber-family.git --skill node-october-2026-security
 ```
 
 ## Skills
