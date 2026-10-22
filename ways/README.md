@@ -14,10 +14,10 @@ A member way is installed from its own directory, so it cannot point at `../../s
 ## Install
 
 ```bash
-npm install -g @incu/ways
+npx -y ways.sh add github:incu-tech/october-cyber-family
+npx -y ways.sh add github:incu-tech/october-cyber-family --members node-oct-2026
 
-ways add github:incu-tech/october-cyber-family
-ways add github:incu-tech/october-cyber-family --members node-oct-2026
+# or, with the CLI installed globally (npm install -g @incu/ways), use: ways add ...
 ```
 
 Or only the skill, via skills.sh:
